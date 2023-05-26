@@ -17,3 +17,10 @@ by using this container, make sure port number 8001, 8002 is available
 login to manage DB with username: db_user, password: db_pw
 
 6. Drop php file into **"webroot"** directory
+7. TO PREPARE USERDATABASE **IMPRTANT** import file 'user.csv' to mariaDB 
+
+with http://localhost:8002 username: db_user, password: db_pw 
+
+onleftside select tab login_db select table 'user' and im port 'user.csv' select format 'CSV' then click import
+
+After you edit code or add user, export database with csv format then upload it to github (increasing number after file name)
