@@ -17,19 +17,10 @@ by using this container, make sure port number 8001, 8002 is available
 login to manage DB with username: db_user, password: db_pw
 
 6. Drop php file into **"webroot"** directory
-7. TO PREPARE USERDATABASE **IMPRTANT** import file 'user.csv' to mariaDB 
 
-with http://localhost:8002 username: db_user, password: db_pw 
+**ฐานข้อมูล**ตอนนี้ไม่ต้องสร้างเองแล้ว **ให้ลบ container เก่าออกก่อนแล้วสร้างใหม่** 
+พอรันใหม่ตอนเปิดหน้าเว็บก็สร้างบัญชีได้เลย ไม่มีเช็คอีเมลซ้ำ ไม่เช็คความยากง่ายของรหัส 
+ถ้าเว็บรันแล้วยังติดเออเร่อให้ลองเปลี่ยน browser หรือ clear cache เก่าออก
 
-onleftside select tab login_db select table 'user' and im port 'user.csv' select format 'CSV' then click import
 
-After you edit code or add user, export database with csv format then upload it to github (increasing number after file name)
-
-to create Database database name 'login_db' with 5 column
-
-1. id set to PRIMARY KEY and check the box a_i
-2. username	type varchar  Length 128 set default to NULL
-3. name	type varchar  Length 255
-4. email type varchar  Length 255
-5. password type varchar  Length 255
  

@@ -1,7 +1,7 @@
 <?php
 
 $host = "mariadb";
-$dbname = "login_db";
+$dbname = "db_test";
 $username = "root";
 $password = "secret";
 

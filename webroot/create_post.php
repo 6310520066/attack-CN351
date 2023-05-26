@@ -4,11 +4,6 @@ session_start();
 
 $mysqli = require __DIR__ . "/database.php";
 
-// Fetch all blog posts
-$sql = "SELECT * FROM blog";
-$result = $mysqli->query($sql);
-$blogs = $result->fetch_all(MYSQLI_ASSOC);
-
 // Check if the user is logged in
 if (isset($_SESSION["user_id"])) {
     $user_id = $_SESSION["user_id"];
@@ -38,42 +33,32 @@ if (isset($_POST["header"]) && isset($_POST["detail"]) && isset($_SESSION["user_
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
+    <title>Create Post</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 <body>
 
-<h1>Home</h1>
+<h2>Post a Blog</h2>
 
 <?php if (isset($user)): ?>
 
     <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
-    <p><a href="create_post.php">Post a blog</a></p>
-    <p><a href="logout.php">Log out</a></p>
 
+    <form method="post" action="create_post.php">
+        <label for="header">Header:</label><br>
+        <input type="text" id="header" name="header" required><br><br>
+
+        <label for="detail">Detail:</label><br>
+        <textarea id="detail" name="detail" required></textarea><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
 
 <?php else: ?>
 
-    <p><a href="login.php">Log in</a> or <a href="signup.html">sign up</a></p>
+    <p>Please <a href="login.php">log in</a> to create a blog post.</p>
 
-<?php endif; ?>
-
-<h2>Blog Posts</h2>
-
-<?php if (!empty($blogs)): ?>
-    <ul>
-        <?php foreach ($blogs as $blog): ?>
-            <li>
-                <h3><?= htmlspecialchars($blog["header"]) ?></h3>
-                <p><?= htmlspecialchars($blog["detail"]) ?></p>
-                <p>Created by: <?= htmlspecialchars($blog["created_by"]) ?></p>
-                <p>Created at: <?= htmlspecialchars($blog["created_at"]) ?></p>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-<?php else: ?>
-    <p>No blog posts found.</p>
 <?php endif; ?>
 
 </body>
