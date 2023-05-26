@@ -24,3 +24,12 @@ with http://localhost:8002 username: db_user, password: db_pw
 onleftside select tab login_db select table 'user' and im port 'user.csv' select format 'CSV' then click import
 
 After you edit code or add user, export database with csv format then upload it to github (increasing number after file name)
+
+to create Database database name 'login_db' with 5 column
+
+1. id set to PRIMARY KEY and check the box a_i
+2. username	type varchar  Length 128 set default to NULL
+3. name	type varchar  Length 255
+4. email type varchar  Length 255
+5. password type varchar  Length 255
+ 
