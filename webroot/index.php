@@ -64,14 +64,15 @@ function checkUserLiked($blog_id, $user_id, $mysqli) {
     <?php foreach ($blogs as $blog): ?>
         <div class="blog">
             <?php 
-                $blog_id = $blog["id"];
-                $sql = "SELECT * FROM blog WHERE id = $blog_id";
+                $user_id = $blog["created_by"];
+                $sql = "SELECT * FROM user WHERE id = $user_id";
                 $result = $mysqli->query($sql);
+                $user = $result->fetch_assoc();
             ?>
 
             <h3><?= htmlspecialchars($blog["header"]) ?></h3>
             <p><?= htmlspecialchars($blog["detail"]) ?></p>
-            <p style="font-size: small">Created by: <?= htmlspecialchars($blog["created_by"]) ?>, created at:<?= htmlspecialchars($blog["created_at"]) ?></p>
+            <p style="font-size: small">Created by: <?= htmlspecialchars($user['username']) ?>, created at:<?= htmlspecialchars($blog["created_at"]) ?></p>
             <div style="display: flex; align-items: center;">
                 <?php if (isset($_SESSION["user_id"])): ?>
                     <!-- Like blog -->
