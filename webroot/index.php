@@ -22,7 +22,7 @@ function checkUserLiked($blog_id, $user_id, $mysqli) {
     $sql = "SELECT * FROM likes WHERE blog_id = $blog_id AND created_by = $user_id";
     $result = $mysqli->query($sql);
 
-    return ($result->num_rows > 0);
+    return $result->num_rows;
 }
 ?>
 <!DOCTYPE html>
@@ -76,7 +76,8 @@ function checkUserLiked($blog_id, $user_id, $mysqli) {
                 <?php if (isset($_SESSION["user_id"])): ?>
                     <!-- Like blog -->
                     <?php if (isset($_SESSION["user_id"])): ?>
-                        <?php if (checkUserLiked($blog["id"], $_SESSION["user_id"], $mysqli)): ?>
+                        <?php $count_like = checkUserLiked($blog["id"], $_SESSION["user_id"], $mysqli)?>
+                        <?php if ($count_like > 0): ?>
                             <form method="POST" action="unlike_blog.php">
                                 <input type="hidden" name="blog_id" value="<?php echo $blog["id"]; ?>">
                                 <input type="hidden" name="created_by" value="<?php echo $_SESSION["user_id"]; ?>">
@@ -86,7 +87,7 @@ function checkUserLiked($blog_id, $user_id, $mysqli) {
                             <form method="POST" action="like_blog.php">
                                 <input type="hidden" name="blog_id" value="<?php echo $blog["id"]; ?>">
                                 <input type="hidden" name="created_by" value="<?php echo $_SESSION["user_id"]; ?>">
-                                <button type="submit" style="background-color: green; color: white;"><?php echo $result->num_rows; ?> Like</button>
+                                <button type="submit" style="background-color: green; color: white;"><?php echo $count_like; ?> Like</button>
                             </form>
                         <?php endif ?>
                     <?php endif ?>
@@ -97,7 +98,6 @@ function checkUserLiked($blog_id, $user_id, $mysqli) {
                             <input type="hidden" name="blog_id" value="<?php echo $blog["id"]; ?>">
                             <button type="submit" style="background-color: red; color: white;">Delete</button>
                         </form>
-                        <!-- <a href="delete_blog.php?blog_id=<?php echo $blog["id"]; ?>">Delete</a> -->
                     <?php endif ?>
                 <?php endif ?>
             </div>
