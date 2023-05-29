@@ -21,3 +21,13 @@ CREATE TABLE blog (
                       `created_by` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_thai_520_w2 DEFAULT NULL,
                       `created_at` TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_thai_520_w2;
+
+DROP TABLE IF EXISTS `likes`;
+CREATE TABLE `likes` (
+                    `id` INT PRIMARY KEY AUTO_INCREMENT,
+                    `blog_id` INT NOT NULL,
+                    `created_by` INT(11) NOT NULL,
+                    `created_at` TIMESTAMP,
+                    FOREIGN KEY (`blog_id`) REFERENCES `blog` (`id`) ON DELETE CASCADE, 
+                    FOREIGN KEY (`created_by`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_thai_520_w2;
