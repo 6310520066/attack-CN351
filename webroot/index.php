@@ -72,15 +72,15 @@ function checkUserLiked($blog_id, $user_id, $mysqli) {
                 $user_id = $blog["created_by"];
                 $sql = "SELECT * FROM user WHERE id = $user_id";
                 $result = $mysqli->query($sql);
-                $user = $result->fetch_assoc();
+                $user_blog = $result->fetch_assoc();
             ?>
 
             <!-- <h3><?= htmlspecialchars($blog["header"]) ?></h3>
             <p><?= htmlspecialchars($blog["detail"]) ?></p>
-            <p style="font-size: small">Created by: <?= htmlspecialchars($user['username']) ?>, created at:<?= htmlspecialchars($blog["created_at"]) ?></p> -->
+            <p style="font-size: small">Created by: <?= htmlspecialchars($user_blog['username']) ?>, created at:<?= htmlspecialchars($blog["created_at"]) ?></p> -->
             <h3><?php echo $blog["header"]; ?></h3>
             <p><?php echo $blog["detail"]; ?></p>
-            <p style="font-size: small">Created by: <?= $user['username'] ?>, created at:<?= $blog["created_at"] ?></p>
+            <p style="font-size: small">Created by: <?= $user_blog['username'] ?>, created at:<?= $blog["created_at"] ?></p>
             <div style="display: flex; align-items: center;">
                 <?php if (isset($_SESSION["user_id"])): ?>
                     <!-- Like blog -->
