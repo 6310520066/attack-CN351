@@ -43,7 +43,8 @@ if (isset($_POST["header"]) && isset($_POST["detail"]) && isset($_SESSION["user_
 
 <?php if (isset($user)): ?>
 
-    <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
+    <!-- <p>Hello <?= htmlspecialchars($user["name"]) ?></p> -->
+    <p>Hello <?= $user["name"] ?></p>
 
     <form method="post" action="create_post.php">
         <label for="header">Header:</label><br>
