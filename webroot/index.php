@@ -61,7 +61,7 @@ function checkUserLiked($blog_id, $user_id, $mysqli) {
 <h2>Blog Posts</h2>
 
 <form method="GET" action="search.php" style="display: inline;">
-    <input type="text" name="query" placeholder="Search blogs..." style="display: inline-block;">
+    <input type="text" name="query" placeholder="Search blogs..." style="display: inline-block;" size="50">
     <button type="submit" style="display: inline-block;">Search</button>
 </form>
 
