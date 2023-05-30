@@ -7,7 +7,7 @@ if (isset($_GET["query"])) {
     $query = $_GET["query"];
 
     // Search for blogs matching the query
-    $sql = "SELECT blog.*, user.name AS username FROM blog LEFT JOIN user ON blog.created_by = user.id WHERE blog.header LIKE '%$query%' OR blog.detail LIKE '%$query%'";
+    $sql = "SELECT blog.*, user.name AS username, user.email AS user_email FROM blog LEFT JOIN user ON blog.created_by = user.id WHERE blog.header LIKE '%$query%' OR blog.detail LIKE '%$query%'";
     $result = $mysqli->query($sql);
     $blogs = $result->fetch_all(MYSQLI_ASSOC);
 }

