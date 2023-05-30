@@ -18,9 +18,7 @@ login to manage DB with username: db_user, password: db_pw
 
 6. Drop php file into **"webroot"** directory
 
-**ฐานข้อมูล**ตอนนี้ไม่ต้องสร้างเองแล้ว **ให้ลบ container เก่าออกก่อนแล้วสร้างใหม่** 
-พอรันใหม่ตอนเปิดหน้าเว็บก็สร้างบัญชีได้เลย ไม่มีเช็คอีเมลซ้ำ ไม่เช็คความยากง่ายของรหัส 
-ถ้าเว็บรันแล้วยังติดเออเร่อให้ลองเปลี่ยน browser หรือ clear cache เก่าออก
+The **database** doesn't need to be created manually anymore. **Delete the old container first and then create a new one.** When you open the web page again, you can create an account right away. There won't be any duplicate email checks or easy password checks. If the website still has errors, try changing your browser or clearing the cache.
 
 
  
