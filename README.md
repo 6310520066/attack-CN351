@@ -17,7 +17,8 @@ Attack demo is the assignment for CN351 Web Application Security.
 
 ### Requirements
 
-1. Choose 3 methods in chapter 21 from D. Stuttard and M. Pinto, "The Web Application Hacker's Handbook", 2E.Implement and demonstrate your chosen methods.
+1. Choose 3 methods in chapter 21 from D. Stuttard and M. Pinto, "The Web Application Hacker's Handbook", 2E.
+2. Implement and demonstrate your chosen methods.
 
 ## Getting Started
 
